@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Khmer Legend Bits</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Flag_of_Cambodia.svg" alt="Cambodia Flag" class="flag">
+            <span>Khmer Legend Bits</span>
+        </div>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
+        </div>
+    </div>
+
+    <div class="hero">
+        <h1>Khmer Legend Bits</h1>
+        <p>Explore history, mystery and horror from around the world</p>
+    </div>
+
+    <div class="cards-container">
+        {% for place in places %}
+        <div class="card">
+            <img src="/static/{{ place.image }}" alt="{{ place.name }}">
+            <h2>{{ place.name }}</h2>
+            <p>{{ place.short }}</p>
+            <a href="/place/{{ place.id }}">Explore →</a>
+        </div>
+        {% endfor %}
+    </div>
+<!-- Stories Section with Scroll Reveal -->
+<section class="stories-section">
+  <h2 class="section-title">THE FIVE KHMER LEGENDS</h2>
+
+  <div class="story-card">
+    <div class="story-container">
+      <div class="story-image-right">
+        <img src="{{ url_for('static', filename='candles.jpg') }}" alt="Pchum Ben">
+      </div>
+      <div class="story-text-full">
+        <h3 class="story-title">Pchum Ben Festival</h3>
+
+        <div class="story-section">
+          <h4 class="section-subtitle">The Ritual</h4>
+          <p>
+            Pchum Ben is a 15-day ritual celebrated in the Khmer month of Potrobot (in September or October depending on the timing of the lunar calendar). During this 15-day period, Buddhist cosmology says the gates of hell open once yearly, allowing ancestors' spirits to be especially active. Many Cambodians believe that departed relatives may have become preta (hungry ghosts). In Khmer myth, people who turned into preta because of their bad karma from actions, sins, greed and tragic death without proper rituals or ceremonies. Moreover, people pay respects to deceased relatives spanning up to seven generations of ancestors, and they express gratitude to parents and ancestors for giving life, care, and concern. Therefore, they go to pagodas, bring food (sticky rice cake) and flowers to the monks. Buddhist provides special care for their immediately departed kin and other more recently deceased ancestors. The basic aim of Pchum Ben involves making a successful transaction of karma transfer to one's dead kin, in order to help assuage their experiences of suffering.
+          </p>
+        </div>
+
+        <div class="story-section">
+          <h4 class="section-subtitle">Background</h4>
+          <p>
+            The story of Pchum Ben follows a monk who journeys to a remote, desolate island, only to discover that the land is plagued by hungry, vengeful spirits known as Pretas. These spirits, long neglected by their living descendants, have become consumed by a restless sorrow, manifesting as a dangerous presence that threatens the living. Through this haunting encounter, the monk learns the vital importance of the Pchum Ben rituals, realizing that the simple act of offering merit serves as the only bridge between the forgotten dead and the peace they so desperately crave.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- YouTube Video Section -->
+<div class="video-container">
+  <iframe width="100%" height="500" src="https://www.youtube.com/embed/4Y9oGz5GmZA" title="Pchum Ben Festival" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+<!-- Second Story: Guardian Spirits -->
+<section class="stories-section">
+  <div class="story-card">
+    <div class="story-container">
+      <div class="story-image-right">
+        <img src="{{ url_for('static', filename='nekta.jpg') }}" alt="Guardian Spirits">
+      </div>
+      <div class="story-text-full">
+        <h3 class="story-title">Guardian Spirits (Neak Ta)</h3>
+
+        <div class="story-section">
+          <h4 class="section-subtitle">The Deity</h4>
+          <p>
+            In Khmer myth, Neak Ta is also known as Louk Ta, a deity reigning over the environment and natural resources such as the soil, rivers, woods, mountains, hills, farms, ports, houses, termite mounds, and large old trees. Neak Ta gradually evolved into a more general form of worship, even worshiping the ancestors who are believed by the local Khmer to have founded the village, they protect the villagers and ensure their well-being.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Expandable Boxes Section -->
+<section class="stories-section">
+  <div class="accordion-container">
+
+    <!-- Box 1: Classification by Jurisdiction -->
+    <!-- Box 1: Classification by Jurisdiction -->
+<div class="accordion-box">
+  <div class="accordion-header" onclick="toggleAccordion(this)">
+    <h4>Classification by Jurisdiction (Location/Function)</h4>
+    <span class="accordion-icon">+</span>
+  </div>
+  <div class="accordion-content">
+    <p>
+      Neak Ta are often classified by the area or element they govern. A village might have a Neak Ta that oversees the entire community, while smaller spirits guard specific natural features:
+    </p>
+    <ul>
+      <li><strong>Territorial Spirits:</strong> These are the guardians of a specific place, such as a village (phum), a district (srok), a forest, a mountain, or a river.</li>
+      <li><strong>Natural Feature Spirits:</strong> They inhabit specific physical manifestations in the landscape, such as large, ancient trees (daeum samrong, daeum bot, or daeum ompil), termite mounds, large rocks, or specific bends in a river.</li>
+      <li><strong>Domestic/Personal Guardians:</strong> Some are associated with family houses or individual lineage protection.</li>
+    </ul>
+
+    <div class="spirit-image-row">
+      <div class="spirit-image-box">
+        <img src="{{ url_for('static', filename='house_spirit.png') }}" alt="House Spirit">
+        <p>House Spirit</p>
+      </div>
+      <div class="spirit-image-box">
+        <img src="{{ url_for('static', filename='phum_spirit.png') }}" alt="Village Spirit">
+        <p>Village Spirit</p>
+      </div>
+      <div class="spirit-image-box">
+        <img src="{{ url_for('static', filename='district_spirit.png') }}" alt="District Spirit">
+        <p>District Spirit</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+    <!-- Box 2: Classification by Origin -->
+    <div class="accordion-box">
+      <div class="accordion-header" onclick="toggleAccordion(this)">
+        <h4>Classification by Origin</h4>
+        <span class="accordion-icon">+</span>
+      </div>
+      <div class="accordion-content">
+        <p>
+          The identity of a Neak Ta often stems from their history:
+        </p>
+        <ul>
+          <li><strong>Mythico-Historical Figures:</strong> Many Neak Ta are believed to be the spirits of legendary heroes, ancient village founders, noblemen, or warriors who were powerful or virtuous during their lifetimes and continue to watch over the land after death.</li>
+          <li><strong>Nature Spirits:</strong> These represent the raw, primal energy of the environment, pre-dating organized religious systems.</li>
+          <li><strong>Assimilated Deities:</strong> In some regions, Neak Ta have been syncretized with figures from Hinduism or Buddhism. For example, some may be referred to by names associated with powerful deities (like Indra or Vishnu), showing how the belief has adapted over centuries.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Box 3: Key Distinctions -->
+    <div class="accordion-box">
+      <div class="accordion-header" onclick="toggleAccordion(this)">
+        <h4>Key Distinctions in the Spirit World</h4>
+        <span class="accordion-icon">+</span>
+      </div>
+      <div class="accordion-content">
+        <div class="accordion-image-right">
+          <img src="{{ url_for('static', filename='arak.jpg') }}" alt="Arak Spirits">
+        </div>
+        <ul>
+          <li><strong>Neak Ta vs. Arak:</strong> Neak Ta are typically seen as masculine, land-based territorial guardians who interact with the village's power structure. Arak, by contrast, are often associated with female ancestral lines and are frequently communicated with through spirit mediums (rup arak).</li>
+          <li><strong>Neak Ta vs. Malevolent Spirits:</strong> Unlike Pret (hungry ghosts) or Besach (malevolent, violent spirits), Neak Ta are generally viewed as tutelary deities. They are protectors; they may be "capricious" or strict—punishing those who disrespect their territory—but they are fundamentally considered part of the moral and protective fabric of the community.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+    <!-- Third Story: The Flying Head (Ahp) -->
+<section class="stories-section">
+  <div class="story-card">
+    <div class="story-container">
+      <div class="story-image-right ahp-image">
+        <img src="{{ url_for('static', filename='ahp.png') }}" alt="The Flying Head Ahp">
+      </div>
+      <div class="story-text-full">
+        <h3 class="story-title">The Flying Head (Ahp)</h3>
+
+        <div class="story-section">
+          <h4 class="section-subtitle">The Spirit</h4>
+          <p>
+            The Flying Head (Ahp) is a female spirit character popular in Cambodian folklore and imagination, a terrifying spirit whose head separates from the body at night with glowing entrails. Legends state that an Ahp was originally a living woman who deeply explored into dark magic, she made a pact with evil spirits, allowing them to possess her body at night. People believed that her dark arts backfired, cursing her so that her head detaches from her mortal body to search for food.
+          </p>
+        </div>
+
+        <div class="story-section">
+          <h4 class="section-subtitle">Across Southeast Asia</h4>
+          <p>
+            Across the disparate cultures of Southeast Asia, the legend of the night-roaming head-spirit remains a shared, terrifying constant. Whether known as the Ahp in Cambodia, the Krasue in Thailand, or the Penanggalan in Malaysia, the entity serves as a mirror of the same dark archetype. By day, they are often indistinguishable from the living, but under the veil of night, they are cursed to undergo a gruesome metamorphosis: the head tears free from the neck, dragging a glowing, pulsating mass of entrails into the darkness.
+          </p>
+          <p>
+            Driven by an insatiable, primal hunger for blood, these spirits share a singular vulnerability—their discarded, headless bodies. Bound by the laws of their curse, they must return to their mortal shells before the first light of dawn, or face total destruction. It is a haunting narrative found in village whispers from the Mekong to the Malay Archipelago—a cautionary tale of dark magic and broken taboos that transcends borders and languages, binding the region in a collective, nocturnal fear.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Ahp Video Section -->
+<div class="video-container">
+  <iframe width="100%" height="500" src="https://www.youtube.com/embed/YYlsrirJkPI" title="The Flying Head Ahp" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+    <!-- Fourth Story: Reahu -->
+<section class="stories-section">
+  <div class="story-card">
+    <div class="story-container">
+      <div class="story-image-right">
+        <img src="{{ url_for('static', filename='reahu.png') }}" alt="Reahu the Demon King">
+      </div>
+      <div class="story-text-full">
+        <h3 class="story-title">Reahu</h3>
+
+        <div class="story-section">
+          <h4 class="section-subtitle">The Demon King</h4>
+          <p>
+            Reahu was known as being the king of demons and all evil things. He exists as just a head with intimidating round eyes, a big and ugly nose, and claw-like hands. He does not have a body. Vishnu, one of the gods, was dedicated to protecting and preserving the world, received a message from the sun and the moon. They revealed to him that Reahu was not a real god, he was a demon. Therefore, he cut Reahu's head down, Reahu's body dropped to the ground, but his head remained alive because the elixir of immortality lingered in his mouth.
+          </p>
+        </div>
+
+        <div class="story-section">
+          <h4 class="section-subtitle">The Eclipse</h4>
+          <p>
+            Any time Rahu encounters the sun and the moon, he tries to trap them in his mouth. But he does not have a body, and even though he tries to swallow them, he cannot eat them. That is why we have the story of the solar eclipse and lunar eclipse.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+    <!-- Fifth Story: Sampeah Kru -->
+<section class="stories-section">
+  <div class="story-card">
+    <div class="story-container">
+      <div class="story-image-right">
+        <img src="{{ url_for('static', filename='kru.png') }}" alt="Sampeah Kru">
+      </div>
+      <div class="story-text-full">
+        <h3 class="story-title">The Essence of Sampeah Kru</h3>
+
+        <div class="story-section">
+          <h4 class="section-subtitle">The Ritual</h4>
+          <p>
+            Before the first strike is thrown in the Bokator ring, or the first delicate curve of the dancer's hand catches the light, a quiet transformation must occur. The performer kneels before an altar heavy with the scent of jasmine and burning incense, pressing their palms together in the traditional Sampeah. This is not a mere warm-up; it is a surrender. They are asking permission from the Kru—the unseen lineage of master teachers and ancestral spirits—to borrow their divine movements. In that brief, sacred pause, the artist empties themselves of ego, inviting the ancients to guide their limbs. When they finally rise to the sound of the drums, the boundary between the present and the past dissolves, and they step forward not as individuals, but as living vessels for Cambodia's ancient soul.
+          </p>
+        </div>
+
+        <div class="story-section">
+          <h4 class="section-subtitle">The Essence</h4>
+          <p>
+            Ultimately, the essence of the Sampeah reflects a society bound by deep-rooted gratitude and continuity. By bowing to their elders, the younger generation does not just show etiquette; they actively sustain a vital social anchor, ensuring that wisdom is passed down with humility and that the weight of the past remains a guiding, rather than burdensome, presence in their modern lives.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sampeah Kru Videos -->
+<div class="video-container">
+  <h4 class="video-label">Bokator Warriors Dance</h4>
+  <iframe width="100%" height="500" src="https://www.youtube.com/embed/kUfXxyiNThI" title="Bokator Warriors Dance" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+<div class="video-container">
+  <iframe width="100%" height="500" src="https://www.youtube.com/embed/Tm6Zjl3zXQw" title="Sampeah Kru" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+<div class="video-container">
+  <h4 class="video-label">For Dancers</h4>
+  <iframe width="100%" height="500" src="https://www.youtube.com/embed/-ZeE7g8Ap7Y" title="For Dancers" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<script>
+  function toggleAccordion(header) {
+    const content = header.nextElementSibling;
+    const icon = header.querySelector('.accordion-icon');
+    const allContents = document.querySelectorAll('.accordion-content');
+    const allIcons = document.querySelectorAll('.accordion-icon');
+
+    // Close all other boxes
+    allContents.forEach(c => c.classList.remove('active'));
+    allIcons.forEach(i => i.style.transform = 'rotate(0deg)');
+
+    // Open clicked box
+    content.classList.add('active');
+    icon.style.transform = 'rotate(45deg)';
+  }
+
+  const observerOptions = {
+    threshold: 0.3,
+    rootMargin: '0px 0px -100px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('reveal');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.story-card').forEach(card => {
+    observer.observe(card);
+  });
+</script>
+<script>
+  document.querySelectorAll('iframe').forEach(iframe => {
+    let src = iframe.src;
+    if (!src.includes('mute=0')) {
+      iframe.src = src + (src.includes('?') ? '&' : '?') + 'mute=0';
+    }
+  });
+</script>
+<script>
+  window.addEventListener('scroll', function() {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+</script>
+   <!-- Musical Representation Videos -->
+<div class="video-container">
+  <h4 class="video-label">Musical Representation</h4>
+  <div class="video-row">
+    <div class="video-box">
+      <iframe width="100%" height="100%" src="https://www.youtube.com/embed/jFVfxBQjMFU" title="Musical Representation 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="video-box">
+      <iframe width="100%" height="100%" src="https://www.youtube.com/embed/u62w2jZixAw" title="Musical Representation 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+
+<!-- Comment Section -->
+<section class="comment-section">
+  <h2 class="section-title">LEAVE A COMMENT</h2>
+  <div class="comment-form">
+    <input type="text" id="commentName" placeholder="Your Name" maxlength="50" />
+    <textarea id="commentText" placeholder="Share your thoughts on Khmer legends..." maxlength="300"></textarea>
+    <button onclick="submitComment()">Post Comment</button>
+  </div>
+  <div class="comment-feed" id="commentFeed"></div>
+</section>
+
+<!-- Animated Footer Scroll -->
+<div class="footer-reveal">
+  <div class="footer-inner">
+    <div class="footer-columns">
+      <div class="footer-col">
+        <p class="footer-label">Created By</p>
+        <p class="footer-name">Sorn Makarain</p>
+        <p class="footer-name">Sreuv Channara</p>
+        <p class="footer-name">So Sothamonny</p>
+      </div>
+
+      <div class="footer-divider">៙</div>
+
+      <div class="footer-col footer-quote-col">
+        <p class="footer-quote">
+          "The legends live on — not in stone or scripture, but in the breath of those who still dare to remember. Cambodia's ancient soul does not fade; it waits, patient as the Mekong, to be carried forward by the living."
+        </p>
+        <p class="footer-sub">— Khmer Legend Bits</p>
+      </div>
+
+      <div class="footer-divider">៙</div>
+
+      <div class="footer-col">
+        <p class="footer-label">References</p>
+        <p class="footer-ref">Holt, J. C. (2018). <em>Theravada Traditions: Buddhist Ritual Cultures in Contemporary Southeast Asia and Sri Lanka.</em> University of Hawaii Press.</p>
+        <p class="footer-ref">Phan, T. A. (2023). Power division in the sacred world: the Cults of Neak Ta and Arak of the ethnic Khmer in Southeastern region, Vietnam. <em>Culture and Religion, 23</em>(2), 155–179.</p>
+        <p class="footer-ref">Chann, C. (2026). Cambodian Legends - Rahu Chab Chann. Google.Com.</p>
+      </div>
+
+      <div class="footer-col footer-quote-col">
+        <img src="{{ url_for('static', filename='aupp_logo.png') }}" alt="AUPP Logo" class="footer-logo">
+        <p class="footer-supported">Supported by the American University of Phnom Penh</p>
+        <p class="footer-copyright">© 2026 Khmer Legend Bits · All Rights Reserved</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const comments = [];
+
+  function submitComment() {
+    const name = document.getElementById('commentName').value.trim();
+    const text = document.getElementById('commentText').value.trim();
+    if (!name || !text) {
+      alert('Please fill in both your name and comment!');
+      return;
+    }
+    comments.unshift({ name, text, time: new Date() });
+    document.getElementById('commentName').value = '';
+    document.getElementById('commentText').value = '';
+    renderComments();
+  }
+
+  function renderComments() {
+    const feed = document.getElementById('commentFeed');
+    feed.innerHTML = '';
+    comments.forEach((c, i) => {
+      const bubble = document.createElement('div');
+      bubble.className = 'comment-bubble';
+      bubble.style.animationDelay = `${i * 0.08}s`;
+      const timeStr = c.time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      const dateStr = c.time.toLocaleDateString();
+      bubble.innerHTML = `
+        <div class="comment-author">✦ ${c.name}</div>
+        <div class="comment-text">${c.text}</div>
+        <div class="comment-time">${dateStr} · ${timeStr}</div>
+      `;
+      feed.appendChild(bubble);
+    });
+  }
+</script>
+
+</section>
+</body>
+</html>

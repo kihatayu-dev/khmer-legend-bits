@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About Us - Khmer Legend Bits</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Flag_of_Cambodia.svg" alt="Cambodia Flag" class="flag">
+            <span>Khmer Legend Bits</span>
+        </div>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
+        </div>
+    </div>
+
+    <!-- ABOUT HERO -->
+    <div class="about-hero">
+        <div class="about-hero-overlay"></div>
+        <div class="about-hero-content">
+            <img src="/static/aupp_logo.png" alt="AUPP Logo" class="aupp-logo">
+            <h1>About Us</h1>
+            <p>The minds behind Khmer Legend Bits</p>
+        </div>
+    </div>
+
+    <!-- ABOUT DESCRIPTION -->
+    <div class="about-section">
+        <div class="about-intro">
+            <h2>Who We Are</h2>
+            <p>We are a group of passionate freshman students currently pursuing a degree in <strong>Cybersecurity</strong> at the <strong>American University of Phnom Penh (AUPP)</strong>. Driven by our love for Cambodian history, culture, and mystery, we created <em>Khmer Legend Bits</em> — a platform dedicated to sharing the hidden stories, forgotten legends, and spine-chilling tales that lie beneath the surface of our beloved homeland.</p>
+        </div>
+
+        <!-- TEAM CARDS -->
+        <h2 class="team-title">Meet The Team</h2>
+        <div class="team-container">
+
+            <div class="team-card">
+                <img src="/static/channara.jpg" alt="Sreuv Channara">
+                <h3>Sreuv Channara</h3>
+                <p class="role">Content Organizer & Visual Designer</p>
+                <p class="bio">Channara brings creativity and an eye for detail to every piece of content on this platform. She is responsible for curating stories, organizing information, and ensuring the visual experience is both beautiful and meaningful.</p>
+            </div>
+
+            <div class="team-card">
+    <img src="/static/makarain.jpg" alt="Sorn Makarain">
+    <h3>Sorn Makarain</h3>
+    <p class="role">Head, Organizer, Visual Design & Web Developer</p>
+    <p class="bio">Makarain leads the team with vision and creativity. She oversees the overall direction of the project, manages the team, and is responsible for the web development and visual design of Khmer Legend Bits.</p>
+</div>
+
+<div class="team-card">
+    <img src="/static/mony.jpg" alt="So Sothamonny">
+    <h3>So Sothamonny</h3>
+    <p class="role">Content Delivery & Content Organizer</p>
+    <p class="bio">Sothamonny is the voice behind the stories. She researches, writes, and delivers compelling content that brings the history, mystery, and horror of Cambodia's hidden places to life.</p>
+</div>
+
+        </div>
+    </div>
+<script>
+<script>
+const cards = document.querySelectorAll('.team-card');
+const logo = document.querySelector('.aupp-logo');
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+            setTimeout(() => {
+                entry.target.classList.add('visible');
+            }, index * 200);
+        }
+    });
+}, { threshold: 0.2 });
+
+cards.forEach(card => observer.observe(card));
+
+const logoObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.2 });
+
+logoObserver.observe(logo);
+</script>
+<!-- Authors' Purposes Section -->
+<section class="authors-section">
+  <h2 class="authors-title">CREATORS' PURPOSE</h2>
+
+  <div class="authors-container">
+
+    <div class="author-card">
+      <div class="author-quote">
+        "Honestly, it frustrates me that most Cambodians today can tell you everything about what their favorite singer, influencer, or content creator is doing, what they eat, where they travel, who they date, and what drama they are in, but cannot tell you a single thing about the legends and myths that their own ancestors believed in for centuries. We pay so much attention to people who will be forgotten in five years and so little attention to stories that have survived for thousands. I created this website because history is not just something you study for an exam and move on from, it is the only real evidence we have that Cambodia existed, thought, feared, worshipped, and built something meaningful long before anyone else was paying attention to us. When we stop caring about our own history, we are not just being careless, we are slowly erasing ourselves."
+      </div>
+      <p class="author-name">— Nara</p>
+    </div>
+
+    <div class="author-card">
+      <div class="author-quote">
+        "Sharing these tales and rituals is a profound blessing for me because it transforms me into a living bridge between the ancient wisdom of my ancestors and my own future. Growing up, I often felt that these deep cultural nuances were something only my own people could truly grasp, but I am now discovering that others come to understand the beauty of my heritage once I open the door for them to see it. By embracing legends like the Ahp or the sacred practice of the Sampeah, I am not just recounting myths; I am inviting others to see the world through a more grounded and resilient lens. These narratives offer me vital life lessons about humility and connection that resonate far beyond any borders, proving that my culture holds universal truths. As I share these traditions, I shift the perspective of those around me, fostering a genuine appreciation for the values that shape who I am. Ultimately, my choice to tell these stories is a powerful act of stewardship that keeps my heritage vibrant and bridges the gap between my inner world and the outside one."
+      </div>
+      <p class="author-name">— Kara</p>
+    </div>
+
+    <div class="author-card">
+      <div class="author-quote">
+        "All in all, I believe learning about Khmer myths and legends are significant because they connect to religious practice and ritual. Many myths aren't just stories, but they are tied to living Buddhist and animist practices and festivals often reenact or reference mythological events. They also teach lessons about moral and social values such as strength, humility, karma, and the consequences of greed or pride. Therefore, all of those stories shape the way Cambodians live through out many historical periods."
+      </div>
+      <p class="author-name">— Monny</p>
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>
