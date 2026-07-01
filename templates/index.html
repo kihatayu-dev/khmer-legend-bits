@@ -346,8 +346,17 @@
     <textarea id="commentText" placeholder="Share your thoughts on Khmer legends..." maxlength="300"></textarea>
     <button onclick="submitComment()">Post Comment</button>
   </div>
-  <div class="comment-feed" id="commentFeed"></div>
+  <div class="comment-feed" id="commentFeed">
+    {% for c in comments %}
+    <div class="comment-bubble">
+      <div class="comment-author">✦ {{ c.name }}</div>
+      <div class="comment-text">{{ c.text }}</div>
+      <div class="comment-time">{{ c.time }}</div>
+    </div>
+    {% endfor %}
+  </div>
 </section>
+
 
 <!-- Animated Footer Scroll -->
 <div class="footer-reveal">
@@ -388,40 +397,57 @@
 </div>
 
 <script>
-  const comments = [];
-
   function submitComment() {
-    const name = document.getElementById('commentName').value.trim();
-    const text = document.getElementById('commentText').value.trim();
+    const nameInput = document.getElementById('commentName');
+    const textInput = document.getElementById('commentText');
+    const name = nameInput.value.trim();
+    const text = textInput.value.trim();
+
     if (!name || !text) {
       alert('Please fill in both your name and comment!');
       return;
     }
-    comments.unshift({ name, text, time: new Date() });
-    document.getElementById('commentName').value = '';
-    document.getElementById('commentText').value = '';
-    renderComments();
+
+    fetch('/add_comment', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, text })
+    })
+      .then(res => res.json())
+      .then(comment => {
+        if (comment.error) {
+          alert(comment.error);
+          return;
+        }
+        addCommentToFeed(comment);
+        nameInput.value = '';
+        textInput.value = '';
+      })
+      .catch(err => console.error('Error posting comment:', err));
   }
 
-  function renderComments() {
+  function addCommentToFeed(c) {
     const feed = document.getElementById('commentFeed');
-    feed.innerHTML = '';
-    comments.forEach((c, i) => {
-      const bubble = document.createElement('div');
-      bubble.className = 'comment-bubble';
-      bubble.style.animationDelay = `${i * 0.08}s`;
-      const timeStr = c.time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-      const dateStr = c.time.toLocaleDateString();
-      bubble.innerHTML = `
-        <div class="comment-author">✦ ${c.name}</div>
-        <div class="comment-text">${c.text}</div>
-        <div class="comment-time">${dateStr} · ${timeStr}</div>
-      `;
-      feed.appendChild(bubble);
-    });
+    const bubble = document.createElement('div');
+    bubble.className = 'comment-bubble';
+
+    const author = document.createElement('div');
+    author.className = 'comment-author';
+    author.textContent = `✦ ${c.name}`;
+
+    const text = document.createElement('div');
+    text.className = 'comment-text';
+    text.textContent = c.text;
+
+    const time = document.createElement('div');
+    time.className = 'comment-time';
+    time.textContent = c.time;
+
+    bubble.append(author, text, time);
+    feed.insertBefore(bubble, feed.firstChild); // newest on top
   }
 </script>
 
-</section>
+
 </body>
 </html>
